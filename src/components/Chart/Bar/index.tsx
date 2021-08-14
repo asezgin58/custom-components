@@ -49,6 +49,7 @@ const BarChartComponent: FC<IBarChartProps> = ({
         dataKey: Object.keys(newData[0])[0],
         stroke: axis.lineColor,
         axisLine: layout === 'vertical' ? axis.yLine : axis.xLine,
+        unit: layout === 'vertical' ? axis.yUnit : axis.xUnit,
         tick: { fontSize: tick.fontSize, fill: tick.color },
         tickLine: tick.line,
         type: 'category',
@@ -62,6 +63,7 @@ const BarChartComponent: FC<IBarChartProps> = ({
     const yAxisProps: any = {
         stroke: axis.lineColor,
         axisLine: layout === 'vertical' ? axis.xLine : axis.yLine,
+        unit: layout === 'vertical' ? axis.xUnit : axis.yUnit,
         tick: { fontSize: tick.fontSize, fill: tick.color },
         tickLine: tick.line,
         ...(range && { domain: range }),

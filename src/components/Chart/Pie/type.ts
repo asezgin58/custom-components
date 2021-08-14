@@ -24,7 +24,8 @@ interface IActiveShape {
     partialNameView?: boolean | IPartialNameView;
 }
 
-export interface IPieChartData extends Pick<IChartData, 'name' | 'value'> {
+export interface IPieChartData extends Pick<IChartData, 'name'> {
+    value: number;
     valueUI?: string;
 }
 

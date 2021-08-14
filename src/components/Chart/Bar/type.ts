@@ -14,6 +14,8 @@ interface IAxis {
     yLine?: boolean;
     label?: IAxisLabelData;
     lineColor?: string;
+    xUnit?: string;
+    yUnit?: string;
 }
 
 interface ITickProps {

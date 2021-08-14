@@ -42,6 +42,59 @@ const BarChartPage: FC = () => {
         },
     ];
 
+    const exampleData: IBarChartData[] = [
+        {
+            name: 'Ocak 2020',
+            values: [{ name: 'para', value: 13, valueUI: '5 TL' }],
+        },
+        {
+            name: '',
+            values: [{ name: 'para', value: 10, valueUI: '5 TL' }],
+        },
+        {
+            name: 'Mart 2020',
+            values: [{ name: 'para', value: 15, valueUI: '5 TL' }],
+        },
+        {
+            name: '',
+            values: [{ name: 'para', value: 18, valueUI: '5 TL' }],
+        },
+        {
+            name: 'Mayıs 2020',
+            values: [{ name: 'para', value: 22, valueUI: '5 TL' }],
+        },
+        {
+            name: '',
+            values: [{ name: 'para', value: 14, valueUI: '5 TL' }],
+        },
+        {
+            name: 'Temmuz 2020',
+            values: [{ name: 'para', value: 8, valueUI: '5 TL' }],
+        },
+        {
+            name: '',
+            values: [{ name: 'para', value: 11, valueUI: '5 TL' }],
+        },
+        {
+            name: 'Eylül 2020',
+            values: [{ name: 'para', value: 6, valueUI: '5 TL' }],
+        },
+        {
+            name: '',
+            values: [{ name: 'para', value: 7, valueUI: '5 TL' }],
+        },
+        {
+            name: 'Kasım 2020',
+            values: [{ name: 'para', value: 8.5, valueUI: '5 TL' }],
+        },
+        {
+            name: '',
+            values: [{ name: 'para', value: 15, valueUI: '5 TL' }],
+        },
+    ];
+
+    const tmp: [number, number] = [1, 2];
+
     return (
         <>
             <h1>Bar Chart</h1>
@@ -186,6 +239,20 @@ const BarChartPage: FC = () => {
                             colors={['#0088FE', '#00C49F', '#FFBB28']}
                             layout={'vertical'}
                             tooltip={true}
+                        />
+                    </div>
+                </div>
+            </div>
+            <div className='row'>
+                <div className='col'>
+                    <h4>Example</h4>
+                    <div style={{ height: 400, backgroundColor: '#fff' }}>
+                        <BarChart
+                            data={exampleData}
+                            colors={['#0088FE']}
+                            axis={{ yLine: false, yUnit: '$' }}
+                            tooltip={true}
+                            range={[5, 25]}
                         />
                     </div>
                 </div>
