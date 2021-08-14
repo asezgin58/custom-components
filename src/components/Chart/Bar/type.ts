@@ -15,7 +15,9 @@ interface IAxis {
     label?: IAxisLabelData;
     lineColor?: string;
     xUnit?: string;
-    yUnit?: string;
+    yUnit?: string | [string, string];
+    xOrientation?: 'top' | 'bottom';
+    yOrientation?: 'left' | 'right';
 }
 
 interface ITickProps {
@@ -29,6 +31,8 @@ interface ITick {
     line?: boolean;
     angle?: ITickProps;
     margin?: ITickProps;
+    points?: number[];
+    equivalentPoints?: number[];
 }
 
 interface ICartesianGrid {
@@ -52,9 +56,11 @@ interface IBar {
     label?: boolean | IBarLabel;
 }
 
+export interface IBarChartDataValuesItem extends IChartData {}
+
 export interface IBarChartData {
     name: string;
-    values: IChartData[];
+    values: IBarChartDataValuesItem[];
 }
 
 export interface IBarTooltip extends ITooltip {

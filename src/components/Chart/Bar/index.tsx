@@ -4,13 +4,14 @@ import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 
 import CustomLegend from '../utils/Legend';
 import CustomTooltip from '../utils/Tooltip';
 import { randomColor, getDataModelForBarChart } from '../action';
+import { v4 as uuidv4 } from 'uuid';
 
 const BarChartComponent: FC<IBarChartProps> = ({
     data,
     colors,
     tooltip = false,
     legend = false,
-    tick = { fontSize: 11, line: false, color: '#4b4f54' },
+    tick,
     axis = {
         xLine: true,
         yLine: true,
@@ -45,35 +46,52 @@ const BarChartComponent: FC<IBarChartProps> = ({
         },
     };
 
+    const tickViewValues = {
+        tick: { fontSize: tick?.fontSize || 11, fill: tick?.color || '#000' },
+        tickLine: tick?.line || false,
+    };
+
     const xAxisProps: any = {
+        orientation: layout === 'vertical' ? axis.yOrientation : axis.xOrientation,
         dataKey: Object.keys(newData[0])[0],
         stroke: axis.lineColor,
         axisLine: layout === 'vertical' ? axis.yLine : axis.xLine,
-        unit: layout === 'vertical' ? axis.yUnit : axis.xUnit,
-        tick: { fontSize: tick.fontSize, fill: tick.color },
-        tickLine: tick.line,
+        unit: axis.xUnit,
+        ...tickViewValues,
         type: 'category',
-        angle: layout === 'vertical' ? tick.angle?.y : tick.angle?.x,
-        tickMargin: layout === 'vertical' ? tick.margin?.y : tick.margin?.x,
+        angle: layout === 'vertical' ? tick?.angle?.y : tick?.angle?.x,
+        tickMargin: layout === 'vertical' ? tick?.margin?.y : tick?.margin?.x,
         label: {
             ...(layout === 'vertical' ? axisData.yData : axisData.xData),
         },
     };
 
     const yAxisProps: any = {
+        orientation: layout === 'vertical' ? axis.xOrientation : axis.yOrientation,
         stroke: axis.lineColor,
         axisLine: layout === 'vertical' ? axis.xLine : axis.yLine,
-        unit: layout === 'vertical' ? axis.xUnit : axis.yUnit,
-        tick: { fontSize: tick.fontSize, fill: tick.color },
-        tickLine: tick.line,
+        unit: axis?.yUnit && typeof axis?.yUnit !== 'string' ? axis?.yUnit[0] : axis?.yUnit,
+        ...tickViewValues,
+        ...(tick?.points && { ticks: tick?.points }),
         ...(range && { domain: range }),
         type: 'number',
-        angle: layout === 'vertical' ? tick.angle?.x : tick.angle?.y,
-        tickMargin: layout === 'vertical' ? tick.margin?.x : tick.margin?.y,
+        angle: layout === 'vertical' ? tick?.angle?.x : tick?.angle?.y,
+        tickMargin: layout === 'vertical' ? tick?.margin?.x : tick?.margin?.y,
         label: {
             ...(layout === 'vertical' ? axisData.xData : axisData.yData),
         },
     };
+
+    const getEquivalentPointsValues = () =>
+        tick?.equivalentPoints &&
+        tick?.equivalentPoints?.length > 0 && {
+            ...yAxisProps,
+            ...(layout !== 'vertical' ? { yAxisId: uuidv4() } : { xAxisId: uuidv4() }),
+            orientation: layout === 'vertical' ? 'top' : 'right',
+            unit: axis?.yUnit && typeof axis?.yUnit !== 'string' ? axis?.yUnit[1] : '',
+            ticks: tick?.equivalentPoints,
+            domain: [tick.equivalentPoints[0], tick.equivalentPoints[tick.equivalentPoints.length - 1]],
+        };
 
     /** 1 */
     const renderBars = () => {
@@ -107,6 +125,7 @@ const BarChartComponent: FC<IBarChartProps> = ({
     return (
         <ResponsiveContainer width='100%' height='100%'>
             <BarChart
+                id={uuidv4()}
                 data={newData}
                 margin={{
                     top: 40,
@@ -137,7 +156,14 @@ const BarChartComponent: FC<IBarChartProps> = ({
                 )}
                 <XAxis {...(layout === 'horizontal' && xAxisProps)} {...(layout === 'vertical' && yAxisProps)} />
                 <YAxis {...(layout === 'horizontal' && yAxisProps)} {...(layout === 'vertical' && xAxisProps)} />
-                {tooltip && CustomTooltip('bar', tooltip, activeTooltipData, data)}
+                {tick?.equivalentPoints &&
+                    tick?.equivalentPoints?.length > 0 &&
+                    (layout !== 'vertical' ? (
+                        <YAxis {...getEquivalentPointsValues()} />
+                    ) : (
+                        <XAxis {...getEquivalentPointsValues()} />
+                    ))}
+                {tooltip && CustomTooltip('bar', tooltip, activeTooltipData, data, axis.yUnit)}
                 {legend && CustomLegend(legend)}
                 {renderBars()}
             </BarChart>

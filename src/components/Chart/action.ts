@@ -1,5 +1,4 @@
-import { IBarChartData } from './Bar/type';
-import { IChartData } from './commonTypes';
+import { IBarChartData, IBarChartDataValuesItem } from './Bar/type';
 
 export const randomColor = (): string => `#${((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0')}`;
 
@@ -14,7 +13,7 @@ export const getDataModelForBarChart = (data: IBarChartData[]) => {
         keys.forEach((key: string, index: number) => {
             if (index === 0) dataObj[key] = (dataItem as any)[key];
             else {
-                (dataItem as any)[key].forEach((valuesItem: IChartData) => {
+                (dataItem as any)[key].forEach((valuesItem: IBarChartDataValuesItem) => {
                     dataObj[(valuesItem as any)[valueKeys[0]]] = (valuesItem as any)[valueKeys[1]];
                 });
             }

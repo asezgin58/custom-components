@@ -45,51 +45,51 @@ const BarChartPage: FC = () => {
     const exampleData: IBarChartData[] = [
         {
             name: 'Ocak 2020',
-            values: [{ name: 'para', value: 13, valueUI: '5 TL' }],
+            values: [{ name: 'para', value: 13 }],
         },
         {
             name: '',
-            values: [{ name: 'para', value: 10, valueUI: '5 TL' }],
+            values: [{ name: 'para', value: 10 }],
         },
         {
             name: 'Mart 2020',
-            values: [{ name: 'para', value: 15, valueUI: '5 TL' }],
+            values: [{ name: 'para', value: 15 }],
         },
         {
             name: '',
-            values: [{ name: 'para', value: 18, valueUI: '5 TL' }],
+            values: [{ name: 'para', value: 18 }],
         },
         {
             name: 'Mayıs 2020',
-            values: [{ name: 'para', value: 22, valueUI: '5 TL' }],
+            values: [{ name: 'para', value: 22 }],
         },
         {
             name: '',
-            values: [{ name: 'para', value: 14, valueUI: '5 TL' }],
+            values: [{ name: 'para', value: 14 }],
         },
         {
             name: 'Temmuz 2020',
-            values: [{ name: 'para', value: 8, valueUI: '5 TL' }],
+            values: [{ name: 'para', value: 8 }],
         },
         {
             name: '',
-            values: [{ name: 'para', value: 11, valueUI: '5 TL' }],
+            values: [{ name: 'para', value: 11 }],
         },
         {
             name: 'Eylül 2020',
-            values: [{ name: 'para', value: 6, valueUI: '5 TL' }],
+            values: [{ name: 'para', value: 6 }],
         },
         {
             name: '',
-            values: [{ name: 'para', value: 7, valueUI: '5 TL' }],
+            values: [{ name: 'para', value: 7 }],
         },
         {
             name: 'Kasım 2020',
-            values: [{ name: 'para', value: 8.5, valueUI: '5 TL' }],
+            values: [{ name: 'para', value: 8.5 }],
         },
         {
             name: '',
-            values: [{ name: 'para', value: 15, valueUI: '5 TL' }],
+            values: [{ name: 'para', value: 15 }],
         },
     ];
 
@@ -229,7 +229,20 @@ const BarChartPage: FC = () => {
                 </div>
             </div>
             <div className='row'>
-                <div className='col'>
+                <div className='col-6'>
+                    <h4>
+                        Orientation Control - ( xOrientation: {'"top" '}|{' "bottom"'} ) - ( yOrientation: {'"left" '}|
+                        {' "right"'} )
+                    </h4>
+                    <div style={{ height: 400, backgroundColor: '#f3f3f3' }}>
+                        <BarChart
+                            data={data}
+                            colors={['#0088FE', '#00C49F', '#FFBB28']}
+                            axis={{ xOrientation: 'top', yOrientation: 'right' }}
+                        />
+                    </div>
+                </div>
+                <div className='col-6'>
                     <h4>
                         Layout Control - Vertical ( layout: {'"horizontal" '}|{' "vertical"'} )
                     </h4>
@@ -250,8 +263,9 @@ const BarChartPage: FC = () => {
                         <BarChart
                             data={exampleData}
                             colors={['#0088FE']}
-                            axis={{ yLine: false, yUnit: '$' }}
+                            axis={{ yLine: false, yUnit: ['$', ' TL'] }}
                             tooltip={true}
+                            tick={{ points: [5, 10, 15, 25], equivalentPoints: [50, 100, 150, 250] }}
                             range={[5, 25]}
                         />
                     </div>

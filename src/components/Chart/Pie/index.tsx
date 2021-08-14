@@ -4,6 +4,7 @@ import { randomColor } from '../action';
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Label } from 'recharts';
 import CustomLegend from '../utils/Legend';
 import CustomTooltip from '../utils/Tooltip';
+import { v4 as uuidv4 } from 'uuid';
 
 const PieChartComponent: FC<IPieChartProps> = ({
     data,
@@ -200,7 +201,7 @@ const PieChartComponent: FC<IPieChartProps> = ({
 
     return (
         <ResponsiveContainer width='100%' height='100%'>
-            <PieChart margin={{ bottom: 0, top: 0 }}>
+            <PieChart id={uuidv4()} margin={{ bottom: 0, top: 0 }}>
                 <Pie
                     data={data}
                     activeIndex={currentActiveIndex}

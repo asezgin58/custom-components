@@ -7,6 +7,7 @@ const CustomTooltip = <T extends ChartDataTypes, Y extends ChartTooltipTypes>(
     tooltip: boolean | ITooltip | Y,
     activeTooltipData?: any,
     data?: T,
+    yUnit?: string | [string, string],
 ) => {
     const renderTooltip = (value: number, name: string, props: any, index: number) => {
         const nameJSX = (
@@ -36,7 +37,8 @@ const CustomTooltip = <T extends ChartDataTypes, Y extends ChartTooltipTypes>(
                 )}
                 {chartType === 'bar' &&
                     data &&
-                    (((data as any)[activeTooltipData?.activeTooltipIndex]?.values[index] as any)?.valueUI || value)}
+                    (((data as any)[activeTooltipData?.activeTooltipIndex]?.values[index] as any)?.valueUI ||
+                        `${value}${yUnit ? (typeof yUnit === 'string' ? yUnit : yUnit[0]) : ''}`)}
             </div>
         );
         const result = [nameJSX].reverse();
