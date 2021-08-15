@@ -14,9 +14,9 @@ const PieChartPage: FC = () => {
         <>
             <h1>Pie Chart</h1>
             <div className='row'>
-                <div className='col-6' style={{ backgroundColor: '#f3f3f3' }}>
+                <div className='col-6'>
                     <h4>Constant Active</h4>
-                    <div style={{ height: 300 }}>
+                    <div style={{ height: 300, backgroundColor: '#f3f3f3' }}>
                         <PieChart
                             data={data}
                             colors={['#0088FE', '#00C49F', '#FFBB28', '#FF8042']}
@@ -26,9 +26,9 @@ const PieChartPage: FC = () => {
                         />
                     </div>
                 </div>
-                <div className='col-6' style={{ backgroundColor: '#f7f7f7' }}>
+                <div className='col-6'>
                     <h4>Constant Multiple Active</h4>
-                    <div style={{ height: 300 }}>
+                    <div style={{ height: 300, backgroundColor: '#fff' }}>
                         <PieChart
                             data={data}
                             colors={['#0088FE', '#00C49F', '#FFBB28', '#FF8042']}
@@ -40,9 +40,9 @@ const PieChartPage: FC = () => {
                 </div>
             </div>
             <div className='row'>
-                <div className='col-6' style={{ backgroundColor: '#f3f3f3' }}>
+                <div className='col-6'>
                     <h4>Hover Active</h4>
-                    <div style={{ height: 300 }}>
+                    <div style={{ height: 300, backgroundColor: '#f3f3f3' }}>
                         <PieChart
                             data={data}
                             colors={['#0088FE', '#00C49F', '#FFBB28', '#FF8042']}
@@ -51,9 +51,9 @@ const PieChartPage: FC = () => {
                         />
                     </div>
                 </div>
-                <div className='col-6' style={{ backgroundColor: '#f7f7f7' }}>
+                <div className='col-6'>
                     <h4>Click Active</h4>
-                    <div style={{ height: 300 }}>
+                    <div style={{ height: 300, backgroundColor: '#fff' }}>
                         <PieChart
                             data={data}
                             colors={['#0088FE', '#00C49F', '#FFBB28', '#FF8042']}
@@ -64,11 +64,11 @@ const PieChartPage: FC = () => {
                 </div>
             </div>
             <div className='row'>
-                <div className='col-6' style={{ backgroundColor: '#f3f3f3' }}>
+                <div className='col-6'>
                     <h4>
                         ActiveShape = type: {'"default"'} - eventType: {'"hover"'}
                     </h4>
-                    <div style={{ height: 300 }}>
+                    <div style={{ height: 300, backgroundColor: '#f3f3f3' }}>
                         <PieChart
                             data={data}
                             colors={['#0088FE', '#00C49F', '#FFBB28', '#FF8042']}
@@ -80,11 +80,11 @@ const PieChartPage: FC = () => {
                         />
                     </div>
                 </div>
-                <div className='col-6' style={{ backgroundColor: '#f7f7f7' }}>
+                <div className='col-6'>
                     <h4>
                         ActiveShape = type: {'"bold"'} - eventType: {'"hover"'}
                     </h4>
-                    <div style={{ height: 300 }}>
+                    <div style={{ height: 300, backgroundColor: '#fff' }}>
                         <PieChart
                             insideRadius={40}
                             data={data}
@@ -107,9 +107,9 @@ const PieChartPage: FC = () => {
                 </div>
             </div>
             <div className='row'>
-                <div className='col-6' style={{ backgroundColor: '#f3f3f3' }}>
+                <div className='col-6'>
                     <h4>Legend Control</h4>
-                    <div style={{ height: 300 }}>
+                    <div style={{ height: 300, backgroundColor: '#f3f3f3' }}>
                         <PieChart
                             data={data}
                             colors={['#0088FE', '#00C49F', '#FFBB28', '#FF8042']}
@@ -125,9 +125,9 @@ const PieChartPage: FC = () => {
                         />
                     </div>
                 </div>
-                <div className='col-6' style={{ backgroundColor: '#f7f7f7' }}>
+                <div className='col-6'>
                     <h4>Tooltip Control</h4>
-                    <div style={{ height: 300 }}>
+                    <div style={{ height: 300, backgroundColor: '#fff' }}>
                         <PieChart
                             data={data}
                             colors={['#0088FE', '#00C49F', '#FFBB28', '#FF8042']}
@@ -146,9 +146,9 @@ const PieChartPage: FC = () => {
                 </div>
             </div>
             <div className='row'>
-                <div className='col-6' style={{ backgroundColor: '#f3f3f3' }}>
+                <div className='col-6'>
                     <h4>Label Control</h4>
-                    <div style={{ height: 300 }}>
+                    <div style={{ height: 300, backgroundColor: '#f3f3f3' }}>
                         <PieChart
                             insideRadius={40}
                             data={data}
@@ -163,9 +163,9 @@ const PieChartPage: FC = () => {
                         />
                     </div>
                 </div>
-                <div className='col-6' style={{ backgroundColor: '#f7f7f7' }}>
+                <div className='col-6'>
                     <h4>Active Index Control</h4>
-                    <div style={{ height: 300 }}>
+                    <div style={{ height: 300, backgroundColor: '#fff' }}>
                         <PieChart
                             data={data}
                             colors={['#0088FE', '#00C49F', '#FFBB28', '#FF8042']}
@@ -182,9 +182,9 @@ const PieChartPage: FC = () => {
                 </div>
             </div>
             <div className='row'>
-                <div className='col-6' style={{ backgroundColor: '#f3f3f3' }}>
+                <div className='col-6'>
                     <h4>insideRadius Control ( For Donut Chart )</h4>
-                    <div style={{ height: 300 }}>
+                    <div style={{ height: 300, backgroundColor: '#f3f3f3' }}>
                         <PieChart
                             insideRadius={40}
                             data={data}

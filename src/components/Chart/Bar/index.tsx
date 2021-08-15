@@ -15,10 +15,10 @@ const BarChartComponent: FC<IBarChartProps> = ({
     axis = {
         xLine: true,
         yLine: true,
-        lineColor: '#4b4f54',
+        lineColor: '#000',
     },
     grid = {
-        lineColor: '#f3f3f3',
+        lineColor: '#cccccc',
         horizontal: true,
         vertical: false,
         backgroundColor: 'transparent',

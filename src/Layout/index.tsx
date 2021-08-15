@@ -10,7 +10,7 @@ const Layout: FC<any> = (props: { children: ReactNode }) => {
         <>
             <Header logo={'/images/logo.svg'} title={'React Custom Components App'} />
             <Sidebar />
-            <div className='content p-3'>
+            <div className='content'>
                 <div className='container-fluid'>{props.children}</div>
             </div>
         </>
