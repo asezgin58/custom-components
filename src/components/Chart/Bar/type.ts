@@ -25,14 +25,18 @@ interface ITickProps {
     y?: number;
 }
 
-interface ITick {
+export interface ITick {
     color?: string;
     fontSize?: number;
+    fontWeight?: string | number;
     line?: boolean;
     angle?: ITickProps;
     margin?: ITickProps;
+    width?: ITickProps;
     points?: number[];
     equivalentPoints?: number[];
+    xView?: boolean;
+    yView?: boolean;
 }
 
 interface ICartesianGrid {

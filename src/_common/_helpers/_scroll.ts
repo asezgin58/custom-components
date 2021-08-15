@@ -3,6 +3,7 @@ export const scrollToElement = (elementId: any) => {
     if (el) {
         el.scrollIntoView({ block: 'start', behavior: 'smooth' });
     } else {
+        // eslint-disable-next-line
         console.warn(`Scroll target element is not found: ${elementId}`);
     }
 };

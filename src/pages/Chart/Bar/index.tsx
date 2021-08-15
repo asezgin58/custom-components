@@ -44,51 +44,51 @@ const BarChartPage: FC = () => {
 
     const exampleData: IBarChartData[] = [
         {
-            name: 'Ocak 2020',
+            name: 'Oca 2020',
             values: [{ name: 'para', value: 13 }],
         },
         {
-            name: '',
+            name: 'Şub 2020',
             values: [{ name: 'para', value: 10 }],
         },
         {
-            name: 'Mart 2020',
+            name: 'Mar 2020',
             values: [{ name: 'para', value: 15 }],
         },
         {
-            name: '',
+            name: 'Nis 2020',
             values: [{ name: 'para', value: 18 }],
         },
         {
-            name: 'Mayıs 2020',
+            name: 'May 2020',
             values: [{ name: 'para', value: 22 }],
         },
         {
-            name: '',
+            name: 'Haz 2020',
             values: [{ name: 'para', value: 14 }],
         },
         {
-            name: 'Temmuz 2020',
+            name: 'Tem 2020',
             values: [{ name: 'para', value: 8 }],
         },
         {
-            name: '',
+            name: 'Ağu 2020',
             values: [{ name: 'para', value: 11 }],
         },
         {
-            name: 'Eylül 2020',
+            name: 'Eyl 2020',
             values: [{ name: 'para', value: 6 }],
         },
         {
-            name: '',
+            name: 'Eki 2020',
             values: [{ name: 'para', value: 7 }],
         },
         {
-            name: 'Kasım 2020',
+            name: 'Kas 2020',
             values: [{ name: 'para', value: 8.5 }],
         },
         {
-            name: '',
+            name: 'Ara 2020',
             values: [{ name: 'para', value: 15 }],
         },
     ];
@@ -265,8 +265,15 @@ const BarChartPage: FC = () => {
                             colors={['#0088FE']}
                             axis={{ yLine: false, yUnit: ['$', ' TL'] }}
                             tooltip={true}
-                            tick={{ points: [5, 10, 15, 25], equivalentPoints: [50, 100, 150, 250] }}
+                            tick={{
+                                points: [5, 10, 15, 25],
+                                equivalentPoints: [50, 100, 150, 250],
+                                width: { x: 50 },
+                                // xView: false,
+                                // yView: false,
+                            }}
                             range={[5, 25]}
+                            // layout={'vertical'}
                         />
                     </div>
                 </div>
