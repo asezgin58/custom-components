@@ -6,7 +6,7 @@ import { IAuthor, authorValue } from '../../_store/slices/author';
 /**
  * Component File Description
  */
-const Detail: FC<any> = () => {
+const Home: FC<any> = () => {
     const author: IAuthor = useSelector<IStore, IAuthor>(authorValue);
 
     return (
@@ -44,4 +44,4 @@ const Detail: FC<any> = () => {
     );
 };
 
-export default Detail;
+export default Home;

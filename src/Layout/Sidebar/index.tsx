@@ -11,6 +11,7 @@ const Sidebar: FC<ISidebarProps> = () => {
 
     const items = [
         { title: 'Home', link: '/' },
+        { title: 'Form', link: '/form' },
         { title: 'Pie Chart', link: '/pie-chart' },
         { title: 'Bar Chart', link: '/bar-chart' },
     ];
