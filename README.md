@@ -9,6 +9,7 @@ The project includes an example of [Redux-Toolkit](https://redux-toolkit.js.org)
 ## Components
 
 -   **Charts :** To learn ReCharts, check out the [ReCharts documentation](https://recharts.org/en-US/).
+-   **Form :** To learn Form, check out the [Formik documentation](https://formik.org/docs/overview).
 
 ## Available Scripts
 
