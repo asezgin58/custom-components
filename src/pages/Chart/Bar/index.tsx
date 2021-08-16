@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { BarChart } from '../../../components';
-import { IBarChartData } from '../../../components/Chart/Bar/type';
+import { IBarChartData } from '../../../components/Chart';
 
 const BarChartPage: FC = () => {
-    const data: IBarChartData[] = [
+    const data: IBarChartData = [
         {
             name: 'Page A',
             values: [
@@ -42,7 +42,7 @@ const BarChartPage: FC = () => {
         },
     ];
 
-    const exampleData: IBarChartData[] = [
+    const exampleData: IBarChartData = [
         {
             name: 'Oca 2020',
             values: [{ name: 'para', value: 13 }],

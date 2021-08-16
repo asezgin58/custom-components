@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { PieChart } from '../../../components';
-import { IPieChartData } from '../../../components/Chart/Pie/type';
+import { IPieChartData } from '../../../components/Chart';
 
 const PieChartPage: FC = () => {
-    const data: IPieChartData[] = [
+    const data: IPieChartData = [
         { name: 'Group A', value: 400, valueUI: '400 TL' },
         { name: 'Group B', value: 300, valueUI: '300 TL' },
         { name: 'Group C', value: 300, valueUI: '300 TL' },
