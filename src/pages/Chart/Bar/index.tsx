@@ -93,8 +93,6 @@ const BarChartPage: FC = () => {
         },
     ];
 
-    const tmp: [number, number] = [1, 2];
-
     return (
         <>
             <h1>Bar Chart</h1>
