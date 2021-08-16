@@ -114,6 +114,8 @@ const PieChartComponent: FC<IPieChartProps> = ({
         const x = cx + radius * Math.cos(-midAngle * RADIAN);
         const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
+        const nameArr: string[] = (label && (label as IPieLabel)?.position === 'center' ? '' : payload.name).split(' ');
+
         return (
             <g>
                 {activeShape?.partialNameView &&
@@ -124,11 +126,11 @@ const PieChartComponent: FC<IPieChartProps> = ({
                                 key={`title-${index}`}
                                 x={cx}
                                 y={cy}
-                                dy={index * 15}
+                                dy={nameArr.length > 1 ? index * 15 : 5}
                                 textAnchor='middle'
                                 fill={(activeShape?.partialNameView as IPartialNameView).color || fill}
                                 fontSize={(activeShape?.partialNameView as IPartialNameView).fontSize || 14}
-                                fontWeight={(activeShape?.partialNameView as IPartialNameView).fontWeight || 'bold'}>
+                                fontWeight={(activeShape?.partialNameView as IPartialNameView).fontWeight || 'normal'}>
                                 {item}
                             </text>
                         ))}
