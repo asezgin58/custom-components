@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { ISidebarProps } from './type';
-import { Drawer, List, ListItem, ListItemText } from '@material-ui/core';
+import { Drawer, List, ListItem, ListItemText } from '@mui/material';
 import { useHistory } from 'react-router-dom';
 
 /**
@@ -14,6 +14,8 @@ const Sidebar: FC<ISidebarProps> = () => {
         { title: 'Form', link: '/form' },
         { title: 'Pie Chart', link: '/pie-chart' },
         { title: 'Bar Chart', link: '/bar-chart' },
+        { title: 'Table', link: '/table' },
+        { title: 'Progress', link: '/progress' },
     ];
 
     return (
@@ -21,9 +23,9 @@ const Sidebar: FC<ISidebarProps> = () => {
             <Drawer variant='permanent'>
                 <div className={''}>
                     <List>
-                        {items.map((item, index) => {
+                        {items.map((item, index: number) => {
                             return (
-                                <ListItem button key={item.title} onClick={() => history.push(item.link)}>
+                                <ListItem button key={index} onClick={() => history.push(item.link)}>
                                     <ListItemText primary={item.title} />
                                 </ListItem>
                             );

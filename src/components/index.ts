@@ -1,3 +1,4 @@
 import { PieChart, BarChart } from './Chart';
+import Progress from './Progress';
 
-export { PieChart, BarChart };
+export { PieChart, BarChart, Progress };
