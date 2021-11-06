@@ -27,7 +27,7 @@ const CustomLinearProgress: FC<ILinearProgressProps> = ({
                         ...(barColor && { backgroundColor: barColor }),
                     },
                 }}
-                {...(value && { variant: 'determinate' })}
+                {...(value !== undefined && { variant: 'determinate' })}
                 value={value}
             />
         );

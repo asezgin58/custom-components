@@ -40,7 +40,7 @@ const CustomCircularProgress: FC<ICircularProgressProps> = ({
                         left: 0,
                     }}
                     {...(size !== 0 && { size: size })}
-                    {...(value && { variant: 'determinate' })}
+                    {...(value !== undefined && { variant: 'determinate' })}
                     value={value}
                     thickness={thickness}
                 />
