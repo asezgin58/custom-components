@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { IHeaderProps } from './type';
-import { AppBar, Toolbar } from '@material-ui/core';
+import { AppBar, Toolbar } from '@mui/material';
 import { useHistory } from 'react-router-dom';
 
 /**
