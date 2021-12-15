@@ -14,6 +14,7 @@ const CustomCircularProgress: FC<ICircularProgressProps> = ({
     barColor,
     barBackgroundColor,
     rounded,
+    childNode,
 }: ICircularProgressProps) => {
     const size: number = ((label && (label as IProgressLabel).fontSize) || 0) * 4;
     const renderProgress = () => {
@@ -48,9 +49,22 @@ const CustomCircularProgress: FC<ICircularProgressProps> = ({
         );
     };
 
+    const renderLabel = () => (
+        <Typography
+            variant='caption'
+            component='div'
+            color={(label as IProgressLabel).color || 'text.secondary'}
+            {...((label as IProgressLabel).fontSize && {
+                fontSize: (label as IProgressLabel).fontSize,
+            })}
+            {...((label as IProgressLabel).fontWeight && {
+                fontWeight: (label as IProgressLabel).fontWeight,
+            })}>{`${Math.round(value || 0)}%`}</Typography>
+    );
+
     return (
         <>
-            {label ? (
+            {label || childNode ? (
                 <>
                     <Box sx={{ position: 'relative', display: 'inline-flex' }}>
                         {renderProgress()}
@@ -65,16 +79,8 @@ const CustomCircularProgress: FC<ICircularProgressProps> = ({
                                 alignItems: 'center',
                                 justifyContent: 'center',
                             }}>
-                            <Typography
-                                variant='caption'
-                                component='div'
-                                color={(label as IProgressLabel).color || 'text.secondary'}
-                                {...((label as IProgressLabel).fontSize && {
-                                    fontSize: (label as IProgressLabel).fontSize,
-                                })}
-                                {...((label as IProgressLabel).fontWeight && {
-                                    fontWeight: (label as IProgressLabel).fontWeight,
-                                })}>{`${Math.round(value || 0)}%`}</Typography>
+                            {label && renderLabel()}
+                            {childNode || <></>}
                         </Box>
                     </Box>
                 </>

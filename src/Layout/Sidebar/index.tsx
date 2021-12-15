@@ -16,6 +16,7 @@ const Sidebar: FC<ISidebarProps> = () => {
         { title: 'Bar Chart', link: '/bar-chart' },
         { title: 'Table', link: '/table' },
         { title: 'Progress', link: '/progress' },
+        { title: 'Loading', link: '/loading' },
     ];
 
     return (

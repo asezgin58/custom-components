@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export enum EnumProgressType {
     LINEAR = 'linear',
     CIRCULAR = 'circular',
@@ -17,4 +19,5 @@ export interface IProgressProps {
     barColor?: string;
     barBackgroundColor?: string;
     rounded?: boolean;
+    childNode?: ReactNode; // for circular progress
 }
